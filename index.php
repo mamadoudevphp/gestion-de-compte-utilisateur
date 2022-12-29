@@ -1,4 +1,13 @@
 <?php 
+require_once("main.controller.php");
+require_once("controllers/visitor/visitor.controller.php");
+require_once("controllers/user/user.controller.php");
+
+
+$visitor_controller = new VisitorController();
+$user_controller = new UserController();
+
+
 try{
 
     if(empty($_GET['page'])){
@@ -8,34 +17,16 @@ try{
             $page = $url[0];
         }
     switch($page){
-        case "home":
-            $page_description = "la description de la page d'accueil";
-            $page_title = "le titre de la page d'accueil";
-            $page_content = "le contenu de la page d'accueil";
+        case "home": $visitor_controller->home();
             break;
-        case "registration":
-            $page_description = "la description de la page d'inscription";
-            $page_title = "le titre de la page d'inscription";
-            $page_content = "le contenu de la page d'inscription";
-            break;
-        case "connection":
-            $page_description = "la description de la page de connexion";
-            $page_title = "le titre de la page de connexion";
-            $page_content = "le contenu de la page de connexion";
-            break;
-        case "about":
-            $page_description = "la description de la page d'informations";
-            $page_title = "le titre de la page d'informations";
-            $page_content = "le contenu de la page d'informations";
+        case "connection": $user_controller->connection();
             break;
             default: throw new Exception("Cette page n'existe pas");
 
     } }
 catch(Exception $e)
     {
-        $page_description = "la description de la page d'erreur";
-        $page_title = "le titre de la page d'erreur";
-        $page_content = $e->getMessage();
+        $visitor_controller->error($e->getMessage());
     }
 
 require_once("views/common/template.view.php");

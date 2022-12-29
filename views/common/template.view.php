@@ -20,13 +20,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="registration">Sign up</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="connection">Log in</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about">About</a>
         </li>
       </ul>
       <form class="d-flex">
