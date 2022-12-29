@@ -1,5 +1,5 @@
 <?php 
-require_once("main.controller.php");
+require_once("controllers/main.controller.php");
 require_once("controllers/visitor/visitor.controller.php");
 require_once("controllers/user/user.controller.php");
 
@@ -21,6 +21,7 @@ try{
             break;
         case "connection": $user_controller->connection();
             break;
+        //case "validation_login": $user_controller->redirection();
             default: throw new Exception("Cette page n'existe pas");
 
     } }
